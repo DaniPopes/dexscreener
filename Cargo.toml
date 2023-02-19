@@ -7,6 +7,12 @@ authors = ["DaniPopes <57450786+DaniPopes@users.noreply.github.com>"]
 description = "A Rust Dexscreener HTTP API client"
 license = "MIT"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+reqwest = { version = "0.11", features = ["json"], default-features = false }
+serde = { version = "1.0", features = ["derive", "std", "alloc"], default-features = false }
+url = "2.3"
+thiserror = "1.0"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
