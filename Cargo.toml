@@ -1,0 +1,12 @@
+[package]
+name = "dexscreener"
+version = "0.1.0"
+edition = "2021"
+exclude = [".github/"]
+authors = ["DaniPopes <57450786+DaniPopes@users.noreply.github.com>"]
+description = "A Rust Dexscreener HTTP API client"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
