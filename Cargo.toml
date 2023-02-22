@@ -2,10 +2,15 @@
 name = "dexscreener"
 version = "0.1.0"
 edition = "2021"
-exclude = [".github/"]
 authors = ["DaniPopes <57450786+DaniPopes@users.noreply.github.com>"]
+repository = "https://github.com/danipopes/dexscreener"
+homepage = "https://docs.rs/dexscreener"
+documentation = "https://docs.rs/dexscreener"
 description = "A Rust Dexscreener HTTP API client"
 license = "MIT"
+categories = ["api-bindings", "cryptography::cryptocurrencies"]
+keywords = ["ethereum", "solana", "api", "blockchain", "crypto"]
+exclude = [".github/"]
 
 [dependencies]
 reqwest = { version = "0.11", features = ["json"], default-features = false }
