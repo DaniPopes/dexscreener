@@ -15,7 +15,7 @@ pub const BASE_URL: &str = "https://api.dexscreener.com/latest/";
 /// A [Dexscreener API](https://docs.dexscreener.com/api/reference) HTTP client.
 #[derive(Clone, Debug)]
 pub struct Client {
-    client: RClient,
+    pub client: RClient,
     pub url: Url,
 }
 
@@ -42,12 +42,11 @@ impl Client {
     }
 
     async fn get_pair(&self, path: &str) -> Result<PairResponse> {
-        Ok(self._get(path)?.send().await?.json().await?)
+        Ok(self._get(path)?.send().await?.error_for_status()?.json().await?)
     }
 
     fn _get(&self, path: &str) -> Result<RequestBuilder> {
         let url = self.url.join(path)?;
-        eprintln!("{url}");
         Ok(self.client.get(url).header(header::ACCEPT, "application/json"))
     }
 }
@@ -77,7 +76,14 @@ impl Client {
 
     /// Performs an HTTP `GET` request to the `/dex/search` path.
     pub async fn search(&self, query: impl AsRef<str>) -> Result<PairResponse> {
-        Ok(self._get("dex/search")?.query(&[("q", query.as_ref())]).send().await?.json().await?)
+        Ok(self
+            ._get("dex/search")?
+            .query(&[("q", query.as_ref())])
+            .send()
+            .await?
+            .error_for_status()?
+            .json()
+            .await?)
     }
 }
 
