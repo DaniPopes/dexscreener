@@ -152,10 +152,10 @@ mod tests {
     async fn test_pairs() {
         let client = Client::new();
         let pair_addresses = [
-            "0x7213a321F1855CF1779f42c0CD85d3D95291D34C".to_string(),
-            "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae".to_string(),
+            "0x7213a321F1855CF1779f42c0CD85d3D95291D34C",
+            "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
         ];
-        let result = client.pairs("bsc", pair_addresses.clone()).await.unwrap().pairs.unwrap();
+        let result = client.pairs("bsc", pair_addresses).await.unwrap().pairs.unwrap();
         assert_eq!(result.len(), 2);
     }
 
@@ -163,10 +163,10 @@ mod tests {
     async fn test_tokens() {
         let client = Client::new();
         let token_addresses = [
-            "0x2170Ed0880ac9A755fd29B2688956BD959F933F8".to_string(),
-            "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c".to_string(),
+            "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+            "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
         ];
-        let result = client.tokens(token_addresses.clone()).await.unwrap().pairs.unwrap();
+        let result = client.tokens(token_addresses).await.unwrap().pairs.unwrap();
         assert!(result.len() > 20);
     }
 
