@@ -1,6 +1,6 @@
 [package]
 name = "dexscreener"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["DaniPopes <57450786+DaniPopes@users.noreply.github.com>"]
 repository = "https://github.com/danipopes/dexscreener"
